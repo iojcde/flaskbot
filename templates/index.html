@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}" />
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css.css')}}" 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> /> -->
+	<script src="{{ url_for('static', filename='jquery.min.js') }}" type="text/javascript"></script>
+</head>
+
+<body>
+    <div class="row">
+    <div class="col-md-10 mr-auto ml-auto">
+    <h1>인공지능 챗봇 (파이썬 학습용)</h1>
+    <form>
+        <div id="chatbox">
+            <div class="col-md-8 ml-auto mr-auto">
+                <p class="botText"><span>Hi! 나는 챗봇 !!</span></p>
+            </div>
+        </div>
+        <div id="userInput" class="row">
+            <div class="col-md-3" style="background-color:white">
+    		   <input id="text" type="text" name="msg"   style="font-size:25px; font-weight: bold; width: 400px; height: 40px; background-color:yellow">
+       <button type="submit" id="send" class="btn btn-primary"><font size=5 color=blue><b>챗톡 [엔터]</b></font></button>
+                
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $("form").on("submit", function(event) {
+            var rawText = $("#text").val();
+            var userHtml = '<p class="userText"><span>' + rawText + "</span></p>";
+            $("#text").val("");
+            $("#chatbox").append(userHtml);
+            document.getElementById("userInput").scrollIntoView({
+                block: "start",
+                behavior: "smooth",
+            });
+            $.ajax({
+                data: {
+                    msg: rawText,
+                },
+                type: "POST",
+                url: "/get",
+            }).done(function(data) {
+                var botHtml = '<p class="botText"><span>' + data + "</span></p>";
+                $("#chatbox").append($.parseHTML(botHtml));
+                document.getElementById("userInput").scrollIntoView({
+                    block: "start",
+                    behavior: "smooth",
+                });
+            });
+            event.preventDefault();
+        });
+    });
+</script>
+</body>
+
+</html>
