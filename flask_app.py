@@ -38,6 +38,7 @@ def home():
 
 @app.route("/get", methods=["POST"])
 def chatbot_response():
+    print(request.get_data())
     msg = request.form["msg"]
     if msg.startswith('my name is'):
         name = msg[11:]
@@ -94,6 +95,8 @@ def predict_class(sentence, model):
 
 
 def getResponse(ints, intents_json):
+    if len(ints) ==0:
+        return "Sorry, I couldn't find an answer to your message."
     tag = ints[0]["intent"]
     list_of_intents = intents_json["intents"]
     for i in list_of_intents:
