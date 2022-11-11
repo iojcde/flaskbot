@@ -20,11 +20,11 @@ a {
 }
 
 .prose pre {
-  @apply border border-gray-200 dark:border-gray-100 dark:bg-gray-900 transition duration-100;
+  @apply border  border-gray-200 dark:border-gray-100 dark:bg-gray-900 transition duration-100;
 }
 
 .prose code {
-  @apply text-gray-100  px-1 py-0.5 rounded-lg;
+  @apply text-gray-800 px-1 py-0.5 rounded-lg;
 }
 
 .prose pre code {
