@@ -71,8 +71,8 @@ for doc in documents:
     bag = []
     # list of tokenized words for the pattern
     pattern_words = doc[0]
-    # lemmatize each word - create base word, in attempt to represent related words
-    pattern_words = words
+    # # lemmatize each word - create base word, in attempt to represent related words
+    # pattern_words = words
     # create our bag of words array with 1, if word match found in current pattern
     for w in words:
         bag.append(1) if w in pattern_words else bag.append(0)

@@ -12,7 +12,7 @@ export default function Home() {
     }[]
   >([
     {
-      msg: "안녕하세요!",
+      msg: "안녕하세요! 파이썬 언어 관련 질문을 물어봐 주세요.",
       author: "AI",
     },
   ]);
