@@ -12,12 +12,10 @@ import numpy as np
 import pickle
 import json
 import nltk
-from nltk.stem import WordNetLemmatizer
-lemmatizer = WordNetLemmatizer()
-nltk.download('omw-1.4')
-nltk.download("punkt")
-nltk.download("wordnet")
+import re
 
+from konlpy.tag import Okt
+okt = Okt()
 
 # init file
 words = []
@@ -32,7 +30,10 @@ for intent in intents["intents"]:
     for pattern in intent["patterns"]:
 
         # take each word and tokenize it
-        w = nltk.word_tokenize(pattern)
+        string = re.sub('[^A-Za-z0-9가-힣 ]', '', pattern)
+
+        w = okt.morphs(string)
+        
         words.extend(w)
         # adding documents
         documents.append((w, intent["tag"]))
@@ -41,10 +42,14 @@ for intent in intents["intents"]:
         if intent["tag"] not in classes:
             classes.append(intent["tag"])
 
-# lemmatizer
-words = [lemmatizer.lemmatize(w.lower()) for w in words if w not in ignore_words]
-words = sorted(list(set(words)))
+# ignore = ["를"]
+# for ig in ignore:
+#     words.remove(ig)
 
+# # lemmatizer
+# for w in words if w not in ignore_words:
+words = sorted(list(set(words)))
+print(words)
 classes = sorted(list(set(classes)))
 
 print(len(documents), "documents")
@@ -67,7 +72,7 @@ for doc in documents:
     # list of tokenized words for the pattern
     pattern_words = doc[0]
     # lemmatize each word - create base word, in attempt to represent related words
-    pattern_words = [lemmatizer.lemmatize(word.lower()) for word in pattern_words]
+    pattern_words = words
     # create our bag of words array with 1, if word match found in current pattern
     for w in words:
         bag.append(1) if w in pattern_words else bag.append(0)

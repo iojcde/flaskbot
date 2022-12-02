@@ -1,267 +1,66 @@
 {
   "intents": [
     {
-      "tag": "greeting",
-      "patterns": [
-        "Hi there",
-        "Hi",
-        "Is anyone there?",
-        "Hello",
-        "Good day",
-        "nice to meet you"
-      ],
-      "responses": [
-        "Hello, thanks for asking",
-        "Good to see you again",
-        "Hi there, how can I help you?"
-      ],
-      "context": ["    "]
-    },
-    {
-      "tag": "how are you",
-      "patterns": ["How are you today?", "How are you?"],
-      "responses": ["I am doing well. Can I help you with something?"]
-    },
-    {
-      "tag": "goodbye",
-      "patterns": [
-        "Bye",
-        "See you later",
-        "Goodbye",
-        "Nice chatting to you, bye",
-        "Till next time"
-      ],
-      "responses": [
-        "See you!",
-        "Have a nice day",
-        "Bye! Come back again soon.",
-        "Bye!"
-      ],
-      "context": [""]
-    },
-    {
-      "tag": "thanks",
-      "patterns": [
-        "Thanks",
-        "Thank you",
-        "That's helpful",
-        "Awesome, thanks",
-        "Thanks for helping me",
-        "thank you so much"
-      ],
-      "responses": [
-        "Happy to help!",
-        "Any time!",
-        "My pleasure.",
-        "No problemo!",
-        "No problem!"
-      ]
-    },
-    {
-      "tag": "name",
-      "patterns": ["my name is ", "I'm ", "I am", "I'm called"],
-      "responses": [
-        "Oooh great to meet you {n}. How may I assist you {n}",
-        "Oh, I'll keep that in mind {n}"
-      ]
-    },
-    {
-      "tag": "need",
-      "patterns": [
-        "I need you",
-        "All I need is you",
-        "I want you",
-        "I need some help",
-        "I need help"
-      ],
-      "responses": ["Yep, I'm here to assist you"]
-    },
-    {
-      "tag": "cool",
-      "patterns": ["Sounds cool!", "cool"],
-      "responses": ["Glad I could be of help."]
-    },
-    {
-      "tag": "list",
-      "patterns": ["list?", "lists", "what is list?", "array"],
-      "responses": [
-        "list들은 하나의 변수에 여러 항목을 저장하는 데 사용됩니다.\nList들은 파이썬에서 데이터 모음을 저장하는 데 사용되는 4가지 기본 제공 데이터 유형 중 하나이며, 나머지 3개는 Tuple, Set, 그리고 Dictionary이며, 모두 품질과 용도가 다릅니다.\nList들은 대괄호를 사용하여 작성됩니다.\n### 예시\n리스트 만들기:\n``` python\nthislist = [\"apple\", \"banana\", \"cherry\"]\nprint(thislist)\n```"
-      ]
-    },
-    {
-      "tag": "dictionary",
-      "patterns": ["dictionary?", "dict", "key value", "what is dictionary?"],
-      "responses": [
-        "Dictionary들은 '키(key):값(value)' 쌍에 데이터 값을 저장하는 데 사용됩니다.\nDictionary들은 정렬된 컬렉션이며, 변경할 수 있으며 중복을 허용하지 않습니다.\n파이썬 버전 3.7부터는 Dictionary들이 정렬되어 있습니다. 파이썬 3.6 이전 버전에서는 Dictionary들이 정렬되어 있지 않습니다.\n'Dictionary'는 대괄호로 묶어서 작성되며 키와 값이 있습니다. ### Dictionary를 만들고 출력하기:\n```python\nthisdict = {\n  \"brand\": \"Ford\",\n  \"model\": \"Mustang\",\n  \"year\": 1964\n}\nprint(thisdict)\n```"
-      ]
-    },
-    {
-      "tag": "Boolean Values",
-      "patterns": ["Boolean Value", "what is Boolean Values?"],
-      "responses": [
-        "프로그래밍에서 식이 참인지 거짓인지 알아야 하는 경우가 많습니다.\nPython에서 모든 식을 평가하고 True 또는 False의 두 가지 답변 중 하나를 얻을 수 있습니다.\n두 값을 비교할 때 식이 평가되고 Python은 'Boolean' 대답을 반환합니다.\n### 예시\n```python\nprint(10 > 9)\nprint(10 == 9)\nprint(10 < 9)\n```"
-      ]
-    },
-    {
-      "tag": "Tuple",
-      "patterns": ["Tuple?", "what is Tuple?"],
-      "responses": [
-        "Tuple들은 하나의 변수에 여러 항목을 저장하는 데 사용됩니다.\nTuple은 파이썬에서 데이터 모음을 저장하는 데 사용되는 4가지 기본 제공 데이터 유형 중 하나이며, 나머지 3개는 List, Set, Dictionary로, 모두 품질과 용도가 다르다.\nTuple은 정렬되고 변경할 수 없는 컬렉션입니다.\ntuples는 괄호로 묶어서 쓴다.\n### 예시\nTuple 만들기:\n```python \nthistuple = (\"apple\", \"banana\", \"cherry\")\nprint(thistuple)\n```"
-      ]
-    },
-    {
-      "tag": "while Loop",
-      "patterns": ["while Loop?", "what is while Loop?"],
-      "responses": [
-        "while 루프를 사용하면 조건이 참인 한 일련의 구문을 실행할 수 있습니다.\n### 예시\ni가 6보다 작은 동안 i 출력하기:\n```python\ni = 1\nwhile i < 6:  print(i)\n  i += 1\n```"
-      ]
-    },
-    {
-      "tag": "For Loops",
-      "patterns": ["For Loops?", "what is For Loops?"],
-      "responses": [
-        "For loop는 시퀀스(list, tuple, dictionary, set, 또는 string)를 반복하기 위해 사용된다.\n이것은 다른 프로그래밍 언어에서 키워드 for와 덜 유사하며, 다른 객체 지향 프로그래밍(object-orientated programming) 언어에서 발견되는 반복자 방법처럼 동작한다.\nFor loop를 사용하면 list, tuple, set 등의 각 항목에 대해 한 번씩 명령문 집합을 실행할 수 있습니다.\n### 예시\n리스트 fruit에 있는 과일을 하나하나 출력하기:\n```python\nfruits = [\"apple\", \"banana\", \"cherry\"]\nfor x in fruits:\n  print(x)\n```"
-      ]
-    },
-    {
       "tag": "Function",
-      "patterns": ["Function?", "what is Function?"],
+      "patterns": ["함수"],
       "responses": [
         "Python에서 함수은 def keyword를 사용하여 정의됩니다.\n### 예시\n```python\ndef my_function():\n  print(\"Hello from a function\")\n```"
       ]
     },
     {
       "tag": "Comment",
-      "patterns": ["Comment?", "what is Comment?"],
+      "patterns": ["주석"],
       "responses": [
-        "주석는 #으로 시작하고, Python은 이를 무시합니다.\n### 예시\n```python#This is a comment\nprint(\"Hello, World!\")\n```"
+        "주석는 #으로 시작하고, Python은 이를 무시합니다..\n### 예시\n```python\n#This is a comment\nprint(\"Hello, World!\")\n\n```"
       ]
     },
     {
-      "tag": "Strings ",
-      "patterns": ["Strings?", "what is Strings?"],
+      "tag": "list",
+      "patterns": ["리스트"],
       "responses": [
-        "파이썬에서 Strings는 작은따옴표나 큰따옴표로 둘러싸여 있습니다.\n'안녕하세요'는 '안녕하세요'와 같습니다.\nprint() 함수를 사용하여 literal 문자열을 표시할 수 있습니다.\n### 예시  ```python\nprint(\"Hello\")\nprint('Hello')\n```"
+        "list들은 하나의 변수에 여러 항목을 저장하는 데 사용됩니다.\nList들은 파이썬에서 데이터 모음을 저장하는 데 사용되는 4가지 기본 제공 데이터 유형 중 하나이며, 나머지 3개는 Tuple, Set, 그리고 Dictionary이며, 모두 품질과 용도가 다릅니다.\nList들은 대괄호를 사용하여 작성됩니다.\n{} \n리스트 만들기:\n``` python\nthislist = [\"apple\", \"banana\", \"cherry\"]\nprint(thislist)\n```"
       ]
     },
     {
-      "tag": "Multiline Strings",
-      "patterns": ["Multiline Strings ?", "what are Multiline Strings?"],
+      "tag": "dictionary",
+      "patterns": ["딕셔너리"],
       "responses": [
-        "긴 문자열은 3개의 쌍 따옴표를 사용하면 됩니다.\n\n### 예시 \n  ```python\na = \"\"\"Lorem ipsum dolor sit amet,\nconsectetur adipiscing elit,\nsed do eiusmod tempor incididunt\nut labore et dolore magna aliqua.\"\"\"\nprint(a)\n```"
+        "Dictionary들은 '키(key):값(value)' 쌍에 데이터 값을 저장하는 데 사용됩니다.\nDictionary들은 정렬된 컬렉션이며, 변경할 수 있으며 중복을 허용하지 않습니다.\n파이썬 버전 3.7부터는 Dictionary들이 정렬되어 있습니다. 파이썬 3.6 이전 버전에서는 Dictionary들이 정렬되어 있지 않습니다.\n'Dictionary'는 대괄호로 묶어서 작성되며 키와 값이 있습니다.\nDictionary를 만들고 출력하기:\n```python\nthisdict = {\n  \"brand\": \"Ford\",\n  \"model\": \"Mustang\",\n  \"year\": 1964\n}\nprint(thisdict)\n```"
+      ]
+    },
+    {
+      "tag": "Boolean Values",
+      "patterns": ["부울"],
+      "responses": [
+        "프로그래밍에서 식이 참인지 거짓인지 알아야 하는 경우가 많습니다.\nPython에서 모든 식을 평가하고 True 또는 False의 두 가지 답변 중 하나를 얻을 수 있습니다.\n두 값을 비교할 때 식이 평가되고 Python은 'Boolean' 대답을 반환합니다.\n\n#### Example\n```python\nprint(10 > 9)\nprint(10 == 9)\nprint(10 < 9)\n```"
+      ]
+    },
+    {
+      "tag": "Tuple",
+      "patterns": ["튜플"],
+      "responses": [
+        "Tuple들은 하나의 변수에 여러 항목을 저장하는 데 사용됩니다.\nTuple은 파이썬에서 데이터 모음을 저장하는 데 사용되는 4가지 기본 제공 데이터 유형 중 하나이며, 나머지 3개는 List, Set, Dictionary로, 모두 품질과 용도가 다르다.\nTuple은 정렬되고 변경할 수 없는 컬렉션입니다.\ntuples는 괄호로 묶어서 쓴다.\n{}\nTuple 만들기:\n```python \nthistuple = (\"apple\", \"banana\", \"cherry\")\nprint(thistuple)\n```"
+      ]
+    },
+    {
+      "tag": "while Loop",
+      "patterns": ["while"],
+      "responses": [
+        "while 루프를 사용하면 조건이 참인 한 일련의 구문을 실행할 수 있습니다.\n{}\ni가 6보다 작은 동안 i 출력하기:\n```python\ni = 1\nwhile i < 6:  print(i)\n  i += 1\n```"
+      ]
+    },
+    {
+      "tag": "For Loops",
+      "patterns": ["for"],
+      "responses": [
+        "For loop는 시퀀스(list, tuple, dictionary, set, 또는 string)를 반복하기 위해 사용된다.\n이것은 다른 프로그래밍 언어에서 키워드 for와 덜 유사하며, 다른 객체 지향 프로그래밍(object-orientated programming) 언어에서 발견되는 반복자 방법처럼 동작한다.\nFor loop를 사용하면 list, tuple, set 등의 각 항목에 대해 한 번씩 명령문 집합을 실행할 수 있습니다.\n{}\n리스트 fruit에 있는 과일을 하나하나 출력하기:\n```python\nfruits = [\"apple\", \"banana\", \"cherry\"]\nfor x in fruits:\n  print(x)\n```"
       ]
     },
     {
       "tag": "User Input",
-      "patterns": ["User Input", "what is User Input?", "get user input"],
+      "patterns": ["입력"],
       "responses": [
-        "Python은 사용자 정보 입력을 허용합니다.\n이는 사용자에게 정보 입력을 요청할 수 있음을 의미합니다.\n다음 예제는 사용자 이름을 묻고 사용자 이름을 입력하면 화면에 print됩니다.\n### 예시\n```python\nusername = input(\"Enter username:\")\nprint(\"Username is: \" + username)\n```"
-      ]
-    },
-    {
-      "tag": "Module",
-      "patterns": ["module", "what is Module?", "import"],
-      "responses": [
-        "import 문을 사용하여 모듈을 사용할 수 있습니다.\n### 예시\nmymodule이라는 모듈을 가져오고 greeting 함수을 호출하기:\n```python\nimport mymodule\nmymodule.greeting(\"Jonathan\")\n```"
-      ]
-    },
-    {
-      "tag": "random integer",
-      "patterns": [
-        "random integer",
-        "how to get random integer",
-        "random number"
-      ],
-      "responses": [
-        "Python에서 랜덤한 자연수를 고르려면 random 모듈의 `random.randint()` 함수를 사용하면 됩니다.\n### 예시\n1 이상 7 이하 숫자 출력하기:\n```python \nimport random\nprint(random.randint(1,7))\n```"
-      ]
-    },
-    {
-      "tag": "list length",
-      "patterns": ["list length?", "how to get length of list"],
-      "responses": [
-        "리스트 안의 아이템이 몇 개 있는지 파악하려면, `len()` 함수를 사용하면 됩니다.\n### 예시\n  리스트의 아이템 게수 출력하기:\n```python\nthislist = [\"apple\", \"banana\", \"cherry\"]\nprint(len(thislist))\n```"
-      ]
-    },
-    {
-      "tag": "Dates",
-      "patterns": ["Python Dates?", "date", "how to use dates"],
-      "responses": [
-        "Python의 date는 자체적으로 data type이 아니지만 dates와 함께 작동하도록 datetime이라는 모듈을 date객체로 가져올 수 있습니다.\n### 예시\nImport the datetime module and display the current date:\n```python\nimport datetime\nx = datetime.datetime.now()\nprint(x)\n```"
-      ]
-    },
-    {
-      "tag": "Arithmetic Operators",
-      "patterns": [
-        "Python Arithmetic Operators?",
-        "what is Python Arithmetic Operators?",
-        "how to add",
-        "how to subtract",
-        "how to divide",
-        "how to multiply"
-      ],
-      "responses": [
-        "연산자는 일반적인 수학 연산을 수행하기 위해 숫자 값과 함께 사용됩니다.\n| 연산자 | 이름 | 예시 |\n| ----- | --- | --- |\n|   +   | 덧셈 | `x + y`     |\n|   -\t| 뻴셈 |\t`x - y`|\n|   \\*  | 곰셈 |`x * y`|\n|/\t| 나눗셈 |\t`x / y`|\n| % | 나머지 | `x % y`|\n| ** | 거듭제곱 |\t`x ** y`|\n| // |몫| `x // y`|"
-      ]
-    },
-    {
-      "tag": "Comparison Operators ",
-      "patterns": [
-        "Python Comparison Operators?",
-        "what is Python Comparison Operators?",
-        "compare"
-      ],
-      "responses": [
-        "비교 연산자(Comparison operator)는 두 값을 비교하는 데 사용됩니다.\n|연산자|설명  | 예시\t|\n|--------|--------|--------|\n|==\t|같다|\t`x == y`\t|\n|!=\t|같지 않다\t|`x != y`\t|\n|>\t|초과\t|`x > y`\t|\n|<\t|미만|\t`x < y`\t|\n|>=\t|이상|\t`x >= y`|\n|<=\t|미만|\t`x <= y` |"
-      ]
-    },
-    {
-      "tag": "Logical Operator",
-      "patterns": [
-        "Logical Operator?",
-        "what is Logical Operator?",
-        "true",
-        "false"
-      ],
-      "responses": [
-        "논리 연산자(Logical Operator)는 조건문을 결합하는 데 사용됩니다.\n|연산자|\t설명|\t예시|\n| ------| -------------| -----------|\n|and |\t두 조건문이 모두 참(True)이면 참(True) 반환 |\t`x < 5 and  x < 10`|\t\n|or\t|두 조건문 중 하나가 참(True)이면 참(True) 반환 \t| `x < 5 or x < 4`\t|\n|not| 결과를 뒤집음. 결과가 참(True)이면 거짓(False)를 반환\t| `not(x < 5 and x < 10)`|"
-      ]
-    },
-    {
-      "tag": "Membership Operator",
-      "patterns": [
-        " Membership Operator?",
-        "what is Membership Operator?",
-        "in list",
-        "in dictionary"
-      ],
-      "responses": [
-        "멤버십 연산자(Membership operators)는 무언가가 객체에 포함되어 있는지 확인하는 데 사용됩니다.\n|연산자\t| 설명 |\t예시|\n|-----------|-----------|------|\n|`in` \t| 지정된 값의 시퀀스가 객체에 있으면 True를 반환합니다|\t`x in y`|\n|`not in`\t|지정한 값의 시퀀스가 객체에 있지 않으면 True를 반환합니다.|\t`x not in y`|"
-      ]
-    },
-    {
-      "tag": "Creating Variables",
-      "patterns": [
-        "Creating variables?",
-        "how to create variables",
-        "how to assign variables"
-      ],
-      "responses": [
-        "Python에는 변수을 선언하는 명령이 없습니다.\nVariable은 값을 처음 할당하는 순간 생성됩니다.\n### 예시\n```python\nx = 5\ny = \"John\"\nprint(x)\nprint(y)\n```"
-      ]
-    },
-    {
-      "tag": "Print",
-      "patterns": ["how to print", "print"],
-      "responses": [
-        "print() 함수는 지정된 메시지를 화면 또는 다른 표준 출력 장치로 인쇄합니다.\n메시지는 문자열 또는 다른 객체일 수 있으며, 객체는 화면에 기록되기 전에 문자열로 변환됩니다.\n### 예시\n화면에 메시지 인쇄:\n```python\n print(\"Hello World\")\n```\n"
-      ]
-    },
-    {
-      "tag": "Conditionals",
-      "patterns": ["if", "conditionals", "what are conditionals"],
-      "responses": [
-        "Python은 수학의 일반적인 논리적 조건을 지원합니다.\n- 같음: a == b \n- 같지 않음: a != b \n- 더 작음: a < b \n- 더 작거나 같음: a <= b \n- 더 큼: a > b \n- 더 크거나 같음: a >= b\n 이러한 조건은 여러 가지 방법으로 사용할 수 있으며, 가장 일반적으로 \"if 문\" 및 루프에 사용됩니다.\n `if` 키워드를 사용하여 \"if 문\"을 작성합니다.\n\n### 예시\n ```python\n a = 33\n b = 200\n if b > a:\n print(\"b is greater than a\")"
+        "Python은 사용자 정보 입력을 허용합니다.\n이는 사용자에게 정보 입력을 요청할 수 있음을 의미합니다.\n다음 예제는 사용자 이름을 묻고 사용자 이름을 입력하면 화면에 print됩니다.\n{}\n```python\nusername = input(\"Enter username:\")\nprint(\"Username is: \" + username)\n```"
       ]
     }
   ]

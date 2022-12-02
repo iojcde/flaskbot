@@ -12,7 +12,7 @@ export default function Home() {
     }[]
   >([
     {
-      msg: "Hello!",
+      msg: "안녕하세요!",
       author: "AI",
     },
   ]);
